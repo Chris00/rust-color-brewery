@@ -269,6 +269,8 @@ pub use palettes::ty::PaletteType;
 
 impl Palette {
     /// Returns the number of colors in the palette.
+    ///
+    /// Palettes countains at least 2 colors.
     pub fn len(&self) -> usize { self.rgb.len() }
 
     /// Says whether the palette is `Seq`uential, `Div`ergent or
@@ -391,9 +393,9 @@ impl PaletteFind {
 
     /// Return an iterator on all known palettes.
     fn all_palettes() -> impl Iterator<Item = &'static Palette> {
-        palettes::ALL_MATPLOTLIB_PALETTES.iter().map(|&p| p)
+        palettes::ALL_MATPLOTLIB_PALETTES.iter().copied()
             .chain(palettes::ALL_BREWER_PALETTES.iter()
-                   .map(|v| v.iter()).flatten())
+                   .flat_map(|v| v.iter()))
     }
 
     /// Return the list of palettes of length at least `len` (and
