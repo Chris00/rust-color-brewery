@@ -1,0 +1,10 @@
+[package]
+name = "color-brewery"
+version = "0.1.0"
+edition = "2021"
+licence = "ISC"
+exclude = ["/tools/"]
+
+[dependencies]
+lazy_static = "1.4.0"
+colorsys = "0.6.7"
