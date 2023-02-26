@@ -11,7 +11,7 @@
 
 use std::f64::consts::PI;
 use std::marker::PhantomData;
-use rgb::{RGBA, RGB8, RGBA8};
+use rgb::{RGBA, RGB8, RGB16, RGBA8, RGBA16};
 
 mod palettes;
 use palettes::ty::PaletteData;
@@ -378,6 +378,18 @@ impl RGBColor for RGB8 {
     }
 }
 
+impl RGBColor for RGB16 {
+    #[inline]
+    fn to_rgba(&self) -> RGBA<f64> {
+        RGBA{ r: self.r as f64, g: self.g as f64, b: self.b as f64, a: 255. }
+    }
+
+    #[inline]
+    fn from_rgba(c: RGBA<f64>) -> Self {
+        RGB16 { r: c.r as u16,  g: c.g as u16,  b: c.b as u16 }
+    }
+}
+
 impl RGBColor for RGBA8 {
     #[inline]
     fn to_rgba(&self) -> RGBA<f64> {
@@ -388,6 +400,19 @@ impl RGBColor for RGBA8 {
     #[inline]
     fn from_rgba(c: RGBA<f64>) -> Self {
         RGBA8 { r: c.r as u8,  g: c.g as u8,  b: c.b as u8, a: c.a as u8 }
+    }
+}
+
+impl RGBColor for RGBA16 {
+    #[inline]
+    fn to_rgba(&self) -> RGBA<f64> {
+        RGBA{ r: self.r as f64, g: self.g as f64, b: self.b as f64,
+              a: self.a as f64 }
+    }
+
+    #[inline]
+    fn from_rgba(c: RGBA<f64>) -> Self {
+        RGBA16 { r: c.r as u16,  g: c.g as u16,  b: c.b as u16, a: c.a as u16 }
     }
 }
 
