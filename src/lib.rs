@@ -184,181 +184,262 @@ pub trait RGBColor: Sized {
 
     /// Matplotlib magma color scheme.
     ///
-    /// ![magma](https://matplotlib.org/stable/_images/sphx_glr_colormap_reference_001_2_0x.png)
+    /// <img src="https://raw.githubusercontent.com/d3/d3-scale-chromatic/master/img/magma.png" width="100%" height="40" alt="magma">
     #[inline]
     fn magma() -> Palette<Self> { Palette::new(&palettes::MAGMA) }
 
     /// Matplotlib inferno color scheme.
+    ///
+    /// <img src="https://raw.githubusercontent.com/d3/d3-scale-chromatic/master/img/inferno.png" width="100%" height="40" alt="inferno">
     #[inline]
     fn inferno() -> Palette<Self> { Palette::new(&palettes::INFERNO) }
 
     /// Matplotlib plasma color scheme.
+    ///
+    /// <img src="https://raw.githubusercontent.com/d3/d3-scale-chromatic/master/img/plasma.png" width="100%" height="40" alt="plasma">
     #[inline]
     fn plasma() -> Palette<Self> { Palette::new(&palettes::PLASMA) }
 
     /// Matplotlib viridis color scheme.
+    ///
+    /// <img src="https://raw.githubusercontent.com/d3/d3-scale-chromatic/master/img/viridis.png" width="100%" height="40" alt="viridis">
     #[inline]
     fn viridis() -> Palette<Self> { Palette::new(&palettes::VIRIDIS) }
 
     /// Matplotlib cividis color scheme.
+    ///
+    /// <img src="https://raw.githubusercontent.com/d3/d3-scale-chromatic/master/img/cividis.png" width="100%" height="40" alt="cividis">
     #[inline]
     fn cividis() -> Palette<Self> { Palette::new(&palettes::CIVIDIS) }
 
     /// Matplotlib twilight color scheme.
+    ///
     #[inline]
     fn twilight() -> Palette<Self> { Palette::new(&palettes::TWILIGHT) }
 
     /// Matplotlib turbo color scheme.
+    ///
+    /// <img src="https://raw.githubusercontent.com/d3/d3-scale-chromatic/master/img/turbo.png" width="100%" height="40" alt="turbo">
     #[inline]
     fn turbo() -> Palette<Self> { Palette::new(&palettes::TURBO) }
 
     /// Brewer "Light yellow to dark green" sequential scheme.
+    ///
+    /// <img src="https://raw.githubusercontent.com/d3/d3-scale-chromatic/master/img/YlGn.png" width="100%" height="40" alt="ylgn">
     #[inline]
     fn ylgn() -> PaletteIter<Self> { PaletteIter::new(&palettes::YLGN) }
 
     /// Brewer "Light yellow to green to dark blue" sequential scheme.
+    ///
+    /// <img src="https://raw.githubusercontent.com/d3/d3-scale-chromatic/master/img/YlGnBu.png" width="100%" height="40" alt="ylgnbu">
     #[inline]
     fn ylgnbu() -> PaletteIter<Self> { PaletteIter::new(&palettes::YLGNBU) }
 
     /// Brewer "Light green to dark blue" sequential scheme.
+    ///
+    /// <img src="https://raw.githubusercontent.com/d3/d3-scale-chromatic/master/img/GnBu.png" width="100%" height="40" alt="gnbu">
     #[inline]
     fn gnbu() -> PaletteIter<Self> { PaletteIter::new(&palettes::GNBU) }
 
     /// Brewer "Light blue to dark green" sequential scheme.
+    ///
+    /// <img src="https://raw.githubusercontent.com/d3/d3-scale-chromatic/master/img/BuGn.png" width="100%" height="40" alt="bugn">
     #[inline]
     fn bugn() -> PaletteIter<Self> { PaletteIter::new(&palettes::BUGN) }
 
     /// Brewer "Light purple to blue to dark green" sequential scheme.
+    ///
+    /// <img src="https://raw.githubusercontent.com/d3/d3-scale-chromatic/master/img/PuBuGn.png" width="100%" height="40" alt="pubugn">
     #[inline]
     fn pubugn() -> PaletteIter<Self> { PaletteIter::new(&palettes::PUBUGN) }
 
     /// Brewer "Light purple to dark blue" sequential scheme.
+    ///
+    /// <img src="https://raw.githubusercontent.com/d3/d3-scale-chromatic/master/img/PuBu.png" width="100%" height="40" alt="pubu">
     #[inline]
     fn pubu() -> PaletteIter<Self> { PaletteIter::new(&palettes::PUBU) }
 
     /// Brewer "Light blue to dark purple" sequential scheme.
+    ///
+    /// <img src="https://raw.githubusercontent.com/d3/d3-scale-chromatic/master/img/BuPu.png" width="100%" height="40" alt="bupu">
     #[inline]
     fn bupu() -> PaletteIter<Self> { PaletteIter::new(&palettes::BUPU) }
 
     /// Brewer "Light red to dark purple" sequential scheme.
+    ///
+    /// <img src="https://raw.githubusercontent.com/d3/d3-scale-chromatic/master/img/RdPu.png" width="100%" height="40" alt="rdpu">
     #[inline]
     fn rdpu() -> PaletteIter<Self> { PaletteIter::new(&palettes::RDPU) }
 
     /// Brewer "Light purple to dark red" sequential scheme.
+    ///
+    /// <img src="https://raw.githubusercontent.com/d3/d3-scale-chromatic/master/img/PuRd.png" width="100%" height="40" alt="purd">
     #[inline]
     fn purd() -> PaletteIter<Self> { PaletteIter::new(&palettes::PURD) }
 
     /// Brewer "Light orange to dark red" sequential scheme.
+    ///
+    /// <img src="https://raw.githubusercontent.com/d3/d3-scale-chromatic/master/img/OrRd.png" width="100%" height="40" alt="orrd">
     #[inline]
     fn orrd() -> PaletteIter<Self> { PaletteIter::new(&palettes::ORRD) }
 
     /// Brewer "Light yellow to orange to dark red" sequential scheme.
+    ///
+    /// <img src="https://raw.githubusercontent.com/d3/d3-scale-chromatic/master/img/YlOrRd.png" width="100%" height="40" alt="ylorrd">
     #[inline]
     fn ylorrd() -> PaletteIter<Self> { PaletteIter::new(&palettes::YLORRD) }
 
     /// Brewer "Light yellow to orange to dark brown" sequential scheme.
+    ///
+    /// <img src="https://raw.githubusercontent.com/d3/d3-scale-chromatic/master/img/YlOrBr.png" width="100%" height="40" alt="ylorbr">
     #[inline]
     fn ylorbr() -> PaletteIter<Self> { PaletteIter::new(&palettes::YLORBR) }
 
 
     /// Brewer "Light to dark purple" sequential scheme.
+    ///
+    /// <img src="https://raw.githubusercontent.com/d3/d3-scale-chromatic/master/img/Purples.png" width="100%" height="40" alt="purples">
     #[inline]
     fn purples() -> PaletteIter<Self> { PaletteIter::new(&palettes::PURPLES) }
 
     /// Brewer "Light to dark blue" sequential scheme.
+    ///
+    /// <img src="https://raw.githubusercontent.com/d3/d3-scale-chromatic/master/img/Blues.png" width="100%" height="40" alt="blues">
     #[inline]
     fn blues() -> PaletteIter<Self> { PaletteIter::new(&palettes::BLUES) }
 
     /// Brewer "Light to dark green" sequential scheme.
+    ///
+    /// <img src="https://raw.githubusercontent.com/d3/d3-scale-chromatic/master/img/Greens.png" width="100%" height="40" alt="greens">
     #[inline]
     fn greens() -> PaletteIter<Self> { PaletteIter::new(&palettes::GREENS) }
 
     /// Brewer "Light to dark orange" sequential scheme.
+    ///
+    /// <img src="https://raw.githubusercontent.com/d3/d3-scale-chromatic/master/img/Oranges.png" width="100%" height="40" alt="oranges">
     #[inline]
     fn oranges() -> PaletteIter<Self> { PaletteIter::new(&palettes::ORANGES) }
 
     /// Brewer "Light to dark red" sequential scheme.
+    ///
+    /// <img src="https://raw.githubusercontent.com/d3/d3-scale-chromatic/master/img/Reds.png" width="100%" height="40" alt="reds">
     #[inline]
     fn reds() -> PaletteIter<Self> { PaletteIter::new(&palettes::REDS) }
 
     /// Brewer "Light to dark gray" sequential scheme.
+    ///
+    /// <img src="https://raw.githubusercontent.com/d3/d3-scale-chromatic/master/img/Greys.png" width="100%" height="40" alt="greys">
     #[inline]
     fn greys() -> PaletteIter<Self> { PaletteIter::new(&palettes::GREYS) }
 
 
     /// Brewer "Dark orange to light to dark purple" diverging scheme
+    ///
+    /// <img src="https://raw.githubusercontent.com/d3/d3-scale-chromatic/master/img/PuOr.png" width="100%" height="40" alt="puor">
     #[inline]
     fn puor() -> PaletteIter<Self> { PaletteIter::new(&palettes::PUOR) }
 
     /// Brewer "Dark brown to light to dark blue-green" diverging scheme
+    ///
+    /// <img src="https://raw.githubusercontent.com/d3/d3-scale-chromatic/master/img/BrBG.png" width="100%" height="40" alt="brbg">
     #[inline]
     fn brbg() -> PaletteIter<Self> { PaletteIter::new(&palettes::BRBG) }
 
     /// Brewer "Dark reddish-purple to light to dark green" diverging scheme
+    ///
+    /// <img src="https://raw.githubusercontent.com/d3/d3-scale-chromatic/master/img/PRGn.png" width="100%" height="40" alt="prgn">
     #[inline]
     fn prgn() -> PaletteIter<Self> { PaletteIter::new(&palettes::PRGN) }
 
     /// Brewer "Dark magenta to light to dark yellow-green" diverging scheme
+    ///
+    /// <img src="https://raw.githubusercontent.com/d3/d3-scale-chromatic/master/img/PiYG.png" width="100%" height="40" alt="piyg">
     #[inline]
     fn piyg() -> PaletteIter<Self> { PaletteIter::new(&palettes::PIYG) }
 
     /// Brewer "Dark red to light to dark blue" diverging scheme.
+    ///
+    /// <img src="https://raw.githubusercontent.com/d3/d3-scale-chromatic/master/img/RdBu.png" width="100%" height="40" alt="rdbu">
     #[inline]
     fn rdbu() -> PaletteIter<Self> { PaletteIter::new(&palettes::RDBU) }
 
     /// Brewer "Dark red to light to dark grey" diverging scheme.
+    ///
+    /// <img src="https://raw.githubusercontent.com/d3/d3-scale-chromatic/master/img/RdGy.png" width="100%" height="40" alt="rdgy">
     #[inline]
     fn rdgy() -> PaletteIter<Self> { PaletteIter::new(&palettes::RDGY) }
 
     /// Brewer "Dark red to light yelow to dark blue" diverging scheme.
+    ///
+    /// <img src="https://raw.githubusercontent.com/d3/d3-scale-chromatic/master/img/RdYlBu.png" width="100%" height="40" alt="rdylbu">
     #[inline]
     fn rdylbu() -> PaletteIter<Self> { PaletteIter::new(&palettes::RDYLBU) }
 
     /// Brewer "Dark red, orange, light yellow, green, dark blue"
     /// diverging scheme.
+    ///
+    /// <img src="https://raw.githubusercontent.com/d3/d3-scale-chromatic/master/img/Spectral.png" width="100%" height="40" alt="spectral">
     #[inline]
     fn spectral() -> PaletteIter<Self> { PaletteIter::new(&palettes::SPECTRAL) }
 
     /// Brewer "Dark red, orange, light yellow, yellow-green, dark green"
     /// diverging scheme.
+    ///
+    /// <img src="https://raw.githubusercontent.com/d3/d3-scale-chromatic/master/img/RdYlGn.png" width="100%" height="40" alt="rdylgn">
     #[inline]
     fn rdylgn() -> PaletteIter<Self> { PaletteIter::new(&palettes::RDYLGN) }
 
 
     /// Brewer qualitative scheme: includes bold, readily named, basic
     /// colors (such as red, green, blue).
+    ///
+    /// <img src="https://raw.githubusercontent.com/d3/d3-scale-chromatic/master/img/Set1.png" width="100%" height="40" alt="set1">
     #[inline]
     fn set1() -> PaletteIter<Self> { PaletteIter::new(&palettes::SET1) }
 
     /// Brewer qualitative scheme: Lighter version of [`Self::set1`].
+    ///
+    /// <img src="https://raw.githubusercontent.com/d3/d3-scale-chromatic/master/img/Pastel1.png" width="100%" height="40" alt="pastel1">
     #[inline]
     fn pastel1() -> PaletteIter<Self> { PaletteIter::new(&palettes::PASTEL1) }
 
     /// Brewer qualitative scheme: Includes mostly a mixture colors
     /// (such as blue-green, red-orange).
+    ///
+    /// <img src="https://raw.githubusercontent.com/d3/d3-scale-chromatic/master/img/Set2.png" width="100%" height="40" alt="set2">
     #[inline]
     fn set2() -> PaletteIter<Self> { PaletteIter::new(&palettes::SET2) }
 
     /// Brewer qualitative scheme: Lighter version of [`Self::set2`].
+    ///
+    /// <img src="https://raw.githubusercontent.com/d3/d3-scale-chromatic/master/img/Pastel2.png" width="100%" height="40" alt="pastel2">
     #[inline]
     fn pastel2() -> PaletteIter<Self> { PaletteIter::new(&palettes::PASTEL2) }
 
     /// Brewer qualitative scheme: Darker version of [`Self::set2`].
+    ///
+    /// <img src="https://raw.githubusercontent.com/d3/d3-scale-chromatic/master/img/Dark2.png" width="100%" height="40" alt="dark2">
     #[inline]
     fn dark2() -> PaletteIter<Self> { PaletteIter::new(&palettes::DARK2) }
 
     /// Brewer qualitative scheme: Medium saturation set with more
     /// lightness variation and more classes than [`Self::set1`] and
     /// [`Self::set2`].
+    ///
+    /// <img src="https://raw.githubusercontent.com/d3/d3-scale-chromatic/master/img/Set3.png" width="100%" height="40" alt="set3">
     #[inline]
     fn set3() -> PaletteIter<Self> { PaletteIter::new(&palettes::SET3) }
 
     /// Brewer qualitative scheme: Light/dark paris for namable hues.
+    ///
+    /// <img src="https://raw.githubusercontent.com/d3/d3-scale-chromatic/master/img/Paired.png" width="100%" height="40" alt="paired">
     #[inline]
     fn paired() -> PaletteIter<Self> { PaletteIter::new(&palettes::PAIRED) }
 
     /// Brewer qualitative scheme: Include lightness and saturation
     /// extremes to accent small or important areas.
+    ///
+    /// <img src="https://raw.githubusercontent.com/d3/d3-scale-chromatic/master/img/Accent.png" width="100%" height="40" alt="accent">
     #[inline]
     fn accent() -> PaletteIter<Self> { PaletteIter::new(&palettes::ACCENT) }
 
