@@ -85,7 +85,11 @@ fn main() -> Result<(), Err> {
     for (comment, p) in [("viridis", RGB8::viridis()),
                          ("magma", RGB8::magma()),
                          ("inferno", RGB8::inferno()),
-                         ("plasma", RGB8::plasma())] {
+                         ("plasma", RGB8::plasma()),
+                         ("viridis", RGB8::viridis()),
+                         ("cividis", RGB8::cividis()),
+                         ("twilight", RGB8::twilight()),
+                         ("turbo", RGB8::turbo())] {
         palette(&mut fh, p, 256, 1, comment)?;
     }
 

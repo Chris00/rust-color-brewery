@@ -135,10 +135,10 @@ fn main() -> Result<(), Box<dyn Error>> {
              env::args().next().unwrap())?;
 
     writeln!(fh, "\n// Matplotlib palettes")?;
-    for (name, palette) in [("MAGMA", matplotlib::MAGMA_RGB),
-                            ("INFERNO", matplotlib::INFERNO_RGB),
-                            ("PLASMA", matplotlib::PLASMA_RGB),
-                            ("VIRIDIS", matplotlib::VIRIDIS_RGB)] {
+    fn matplotlib<const N: usize>(
+        fh: &mut impl Write,
+        name: &str,
+        palette: [[f64; 3]; N]) -> std::io::Result<()> {
         write!(fh, "lazy_static! {{\n  \
                     pub(crate) static ref {name}: PaletteData = {{\n  \
                     PaletteData {{\n    \
@@ -153,7 +153,15 @@ fn main() -> Result<(), Box<dyn Error>> {
                           a: 1.}},", 255. * r, 255. * g, 255. * b)?;
         }
         writeln!(fh, "    ]}}\n  }};\n}}\n")?;
+        Ok(())
     }
+    matplotlib(&mut fh, "MAGMA", matplotlib::MAGMA_RGB)?;
+    matplotlib(&mut fh, "INFERNO", matplotlib::INFERNO_RGB)?;
+    matplotlib(&mut fh, "PLASMA", matplotlib::PLASMA_RGB)?;
+    matplotlib(&mut fh, "VIRIDIS", matplotlib::VIRIDIS_RGB)?;
+    matplotlib(&mut fh, "CIVIDIS", matplotlib::CIVIDIS_RGB)?;
+    matplotlib(&mut fh, "TWILIGHT", matplotlib::TWILIGHT_RGB)?;
+    matplotlib(&mut fh, "TURBO", matplotlib::TURBO_RGB)?;
 
     writeln!(fh, "// Brewer colormaps — see http://colorbrewer2.org/\n\
                   // Number of maps: {}",

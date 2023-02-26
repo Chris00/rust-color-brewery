@@ -200,6 +200,18 @@ pub trait RGBColor: Sized {
     #[inline]
     fn viridis() -> Palette<Self> { Palette::new(&palettes::VIRIDIS) }
 
+    /// Matplotlib cividis color scheme.
+    #[inline]
+    fn cividis() -> Palette<Self> { Palette::new(&palettes::CIVIDIS) }
+
+    /// Matplotlib twilight color scheme.
+    #[inline]
+    fn twilight() -> Palette<Self> { Palette::new(&palettes::TWILIGHT) }
+
+    /// Matplotlib turbo color scheme.
+    #[inline]
+    fn turbo() -> Palette<Self> { Palette::new(&palettes::TURBO) }
+
     /// Brewer "Light yellow to dark green" sequential scheme.
     #[inline]
     fn ylgn() -> PaletteIter<Self> { PaletteIter::new(&palettes::YLGN) }
