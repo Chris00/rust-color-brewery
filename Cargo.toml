@@ -9,7 +9,7 @@ repository = "https://github.com/Chris00/rust-color-brewery"
 documentation = "https://docs.rs/color-brewery"
 licence = "ISC"
 keywords = ["rgb", "rgba", "bgra", "pixel", "color"]
-categories = ["graphics", "multimedia::images", "visualization", "colormap", "color-scales", "gradient"]
+categories = ["graphics", "multimedia::images", "visualization", "colormap", "gradient"]
 exclude = ["/tools/", "*.org", "/biblio"]
 
 [dependencies]
