@@ -2,9 +2,15 @@
 name = "color-brewery"
 version = "0.1.0"
 edition = "2021"
+authors = ["Christophe Troestler <christophe.troestler@umons.ac.be>"]
+description = "Color palettes and gradients"
+homepage = "https://github.com/Chris00/rust-color-brewery"
+repository = "https://github.com/Chris00/rust-color-brewery"
+documentation = "https://docs.rs/color-brewery"
 licence = "ISC"
-keywords = ["color"]
-exclude = ["/tools/"]
+keywords = ["rgb", "rgba", "bgra", "pixel", "color"]
+categories = ["graphics", "multimedia::images", "visualization", "colormap", "color-scales", "gradient"]
+exclude = ["/tools/", "*.org"]
 
 [dependencies]
 lazy_static = "1.4.0"
