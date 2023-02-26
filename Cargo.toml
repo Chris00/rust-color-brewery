@@ -10,7 +10,7 @@ documentation = "https://docs.rs/color-brewery"
 licence = "ISC"
 keywords = ["rgb", "rgba", "bgra", "pixel", "color"]
 categories = ["graphics", "multimedia::images", "visualization", "colormap", "color-scales", "gradient"]
-exclude = ["/tools/", "*.org"]
+exclude = ["/tools/", "*.org", "/biblio"]
 
 [dependencies]
 lazy_static = "1.4.0"
