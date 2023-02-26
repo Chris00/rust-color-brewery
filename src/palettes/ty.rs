@@ -1,8 +1,8 @@
-pub(crate) use colorsys::Rgb;
+pub(crate) use rgb::RGBA;
 
 /// A Colormap with certain characteristics.
-pub struct Palette {
-    pub(crate) rgb: Vec<Rgb>, // Invariant: length ≥ 2
+pub(crate) struct PaletteData {
+    pub(crate) rgb: Vec<RGBA<f64>>, // Invariant: length ≥ 2
     pub(crate) typ: PaletteType,
     pub(crate) blind: Trivalent,
     pub(crate) print: Trivalent,

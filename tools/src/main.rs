@@ -15,14 +15,14 @@ use serde_hjson::Value::{self, *};
 mod matplotlib;
 
 #[derive(Debug, Clone, Copy)]
-pub enum Trivalent {
+enum Trivalent {
     Yes,
     Maybe,
     No,
 }
 
 #[derive(Debug)]
-pub struct Palette {
+struct Palette {
     rgb: Vec<[f64; 3]>,// RGB Colors of the palette
     typ: String,
     blind: Trivalent,
@@ -140,8 +140,8 @@ fn main() -> Result<(), Box<dyn Error>> {
                             ("PLASMA", matplotlib::PLASMA_RGB),
                             ("VIRIDIS", matplotlib::VIRIDIS_RGB)] {
         write!(fh, "lazy_static! {{\n  \
-                    pub static ref {name}: Palette = {{\n  \
-                    Palette {{\n    \
+                    pub(crate) static ref {name}: PaletteData = {{\n  \
+                    PaletteData {{\n    \
                     typ: PaletteType::Seq,\n    \
                     blind: Trivalent::Yes,\n    \
                     print: Trivalent::Yes,\n    \
@@ -149,8 +149,8 @@ fn main() -> Result<(), Box<dyn Error>> {
                     lcd: Trivalent::Yes,\n    \
                     rgb: vec![\n")?;
         for [r, g, b] in palette {
-            writeln!(fh, "      Rgb::from(({}, {}, {})),",
-                     255. * r, 255. * g, 255. * b)?;
+            writeln!(fh, "      RGBA{{r: {:>10.6}, g: {:>10.6}, b: {:>10.6}, \
+                          a: 1.}},", 255. * r, 255. * g, 255. * b)?;
         }
         writeln!(fh, "    ]}}\n  }};\n}}\n")?;
     }
@@ -160,11 +160,11 @@ fn main() -> Result<(), Box<dyn Error>> {
              brewer_maps.len())?;
     for (name, palettes) in &brewer_maps {
         writeln!(fh, "lazy_static! {{\n  \
-                      pub static ref {}: Vec<Palette> = {{\n    \
+                      pub(crate) static ref {}: Vec<PaletteData> = {{\n    \
                       vec![",
                  name.to_ascii_uppercase())?;
         for p in palettes {
-            write!(fh, "      Palette {{\n        \
+            write!(fh, "      PaletteData {{\n        \
                         typ: PaletteType::{},\n        \
                         blind: Trivalent::{:?},\n        \
                         print: Trivalent::{:?},\n        \
@@ -173,7 +173,7 @@ fn main() -> Result<(), Box<dyn Error>> {
                         rgb: vec![",
                    capitalize(&p.typ), p.blind, p.print, p.photocopy, p.lcd)?;
             for [r, g, b] in &p.rgb {
-                write!(fh, "Rgb::new({r:.1}, {g:.1}, {b:.1}, None),")?;
+                write!(fh, "RGBA{{r: {r:.1}, g: {g:.1}, b: {b:.1}, a: 1.}},")?;
             }
             writeln!(fh, "]\n      }},")?;
         }
@@ -181,12 +181,12 @@ fn main() -> Result<(), Box<dyn Error>> {
     }
 
     write!(fh, "lazy_static! {{\n  \
-                pub static ref ALL_MATPLOTLIB_PALETTES: \
-                [&'static Palette; 4] = [\n    \
+                pub(crate) static ref ALL_MATPLOTLIB_PALETTES: \
+                [&'static PaletteData; 4] = [\n    \
                 MAGMA.deref(), INFERNO.deref(), PLASMA.deref(), \
                 VIRIDIS.deref()];\n  \
-                pub static ref ALL_BREWER_PALETTES: \
-                [&'static Vec<Palette>; {}] = {{\n    [",
+                pub(crate) static ref ALL_BREWER_PALETTES: \
+                [&'static Vec<PaletteData>; {}] = {{\n    [",
            brewer_maps.len())?;
     for (name, _) in &brewer_maps {
         write!(fh, "{}.deref(),\n     ", name.to_ascii_uppercase())?;
