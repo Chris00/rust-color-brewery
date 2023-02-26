@@ -1,13 +1,13 @@
 //! Color schemes and gradients.
 //!
-//! - [`Gradient`]
-//! - [`Hue`]
+//! This create provides the [color schemes by Cynthia
+//! Brewer](http://colorbrewer2.org/) and Matplotlib colormaps as well
+//! as gradients build from them (or from your own colors).  The
+//! default representation of colors is the one given by the [rgb
+//! crate][] but any type can be used: it suffices it implements the
+//! [`RGBColor`] trait.
 //!
-//! [`ColorRange`]
-//!
-//! Many [`Palette`]s are provided: Matplotlib [`struct@MAGMA`],
-//! [`struct@INFERNO`], [`struct@PLASMA`] and [`struct@VIRIDIS`], and
-//! all [schemes by Cynthia Brewer](https://colorbrewer2.org/).
+//! [rgb crate]: https://crates.io/crates/rgb
 
 use std::f64::consts::PI;
 use std::marker::PhantomData;
@@ -318,7 +318,7 @@ pub trait RGBColor: Sized {
     #[inline]
     fn set1() -> PaletteIter<Self> { PaletteIter::new(&palettes::SET1) }
 
-    /// Brewer qualitative scheme: Lighter version of [`struct@SET1`].
+    /// Brewer qualitative scheme: Lighter version of [`Self::set1`].
     #[inline]
     fn pastel1() -> PaletteIter<Self> { PaletteIter::new(&palettes::PASTEL1) }
 
@@ -327,17 +327,17 @@ pub trait RGBColor: Sized {
     #[inline]
     fn set2() -> PaletteIter<Self> { PaletteIter::new(&palettes::SET2) }
 
-    /// Brewer qualitative scheme: Lighter version of [`struct@SET2`].
+    /// Brewer qualitative scheme: Lighter version of [`Self::set2`].
     #[inline]
     fn pastel2() -> PaletteIter<Self> { PaletteIter::new(&palettes::PASTEL2) }
 
-    /// Brewer qualitative scheme: Darker version of [`struct@SET2`].
+    /// Brewer qualitative scheme: Darker version of [`Self::set2`].
     #[inline]
     fn dark2() -> PaletteIter<Self> { PaletteIter::new(&palettes::DARK2) }
 
     /// Brewer qualitative scheme: Medium saturation set with more
-    /// lightness variation and more classes than [`struct@SET1`] and
-    /// [`struct@SET2`].
+    /// lightness variation and more classes than [`Self::set1`] and
+    /// [`Self::set2`].
     #[inline]
     fn set3() -> PaletteIter<Self> { PaletteIter::new(&palettes::SET3) }
 
@@ -497,7 +497,7 @@ impl<Color: RGBColor> ColorRange<Color> for Hue<Color> {
 
 /// Gradient between two colors.
 ///
-/// Created by [`RGBcolor::gradient`].  See the [`ColorRange`] trait
+/// Created by [`RGBColor::gradient`].  See the [`ColorRange`] trait
 /// for methods.
 pub struct Gradient<Color> {
     c0: Lch, // first color
@@ -649,7 +649,7 @@ impl<Color: RGBColor> DoubleEndedIterator for PaletteIter<Color>{
 
 /// Set criteria to find matching palettes.
 ///
-/// Created by [`find`].
+/// Created by [`RGBColor::palettes`].
 #[derive(Clone)]
 pub struct PaletteFind<Color> {
     len: usize,
@@ -679,29 +679,29 @@ where Color: RGBColor {
         self
     }
 
-    /// Search palettes possibly ([`Maybe`]) or definitely ([`Yes])
-    /// suitable for color blind people.
+    /// Search palettes possibly ([`Trivalent::Maybe`]) or definitely
+    /// ([`Trivalent::Yes`]) suitable for color blind people.
     pub fn blind(mut self, at_least: Trivalent) -> Self {
         self.blind = at_least;
         self
     }
 
-    /// Search palettes possibly ([`Maybe`]) or definitely ([`Yes])
-    /// suitable for desktop color printing.
+    /// Search palettes possibly ([`Trivalent::Maybe`]) or definitely
+    /// ([`Trivalent::Yes`]) suitable for desktop color printing.
     pub fn print(mut self, at_least: Trivalent) -> Self {
         self.print = at_least;
         self
     }
 
-    /// Search palettes possibly ([`Maybe`]) or definitely ([`Yes])
-    /// suitable for black and white photocopying.
+    /// Search palettes possibly ([`Trivalent::Maybe`]) or definitely
+    /// ([`Trivalent::Yes`]) suitable for black and white photocopying.
     pub fn photocopy(mut self, at_least: Trivalent) -> Self {
         self.photocopy = at_least;
         self
     }
 
-    /// Search palettes possibly ([`Maybe`]) or definitely ([`Yes])
-    /// suitable for LCD screens.
+    /// Search palettes possibly ([`Trivalent::Maybe`]) or definitely
+    /// ([`Trivalent::Yes`]) suitable for LCD screens.
     pub fn lcd(mut self, at_least: Trivalent) -> Self {
         self.lcd = at_least;
         self
